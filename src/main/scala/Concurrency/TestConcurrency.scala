@@ -9,10 +9,10 @@ import scala.util.Random
  */
 object TestConcurrency {
   def main(args: Array[String]): Unit ={
-    val buf = new BondedBuffer[String](10)
-
-    spawn{ while(true) { val s = produceString; buf.put(s)}}
-    spawn{ while(true) { val s = buf.get; consumeString(s)}}
+//    val buf = new BondedBuffer[String](10)
+//
+//    spawn{ while(true) { val s = produceString; buf.put(s)}}
+//    spawn{ while(true) { val s = buf.get; consumeString(s)}}
   }
 
   def produceString:String = {
@@ -52,11 +52,11 @@ object TestConcurrency {
     }
   }
 
-  def parMap[A,B](f: A => B, xs: Array[A]): Array[B] = {
-    val results = new Array[B](xs.length)
-    replicate(0, xs.length){i => results(i) = f(xs(i))}
-    results
-  }
+//  def parMap[A,B](f: A => B, xs: Array[A]): Array[B] = {
+//    val results = new Array[B](xs.length)
+//    replicate(0, xs.length){i => results(i) = f(xs(i))}
+//    results
+//  }
 }
 
 class Lock{
@@ -71,11 +71,11 @@ class Lock{
   }
 }
 
-class ReadersWriters{
-  val m = new MailBox
-  private case class Writers(n: Int);
-  private case class Readers(n: Int){m send this}
-  Writers(0); Readers(0)
-  def
-
-}
+//class ReadersWriters{
+//  val m = new MailBox
+//  private case class Writers(n: Int);
+//  private case class Readers(n: Int){m send this}
+//  Writers(0); Readers(0)
+//
+//
+//}
